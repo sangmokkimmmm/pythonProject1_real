@@ -8,16 +8,6 @@ x_train, x_test = x_train / 255.0, x_test / 255.0
 
 x_train = np.expand_dims(x_train, axis=-1)
 x_test = np.expand_dims(x_test, axis=-1)
-# Data Prepare END
-#def vgg_block(in_layer, n_conv, n_filter, filter_size=(3, 3), reduce_size=True):
-    #layer = in_layer
-    #for i in range(n_conv):
-        #layer = tf.keras.layers.Con2D(n_filter, filter_size, padding='SAME', activation='relu')(layer)
-
-   # if reduce_size:
-        #layer = tf.keras.layers.MaxPool2D((2, 2))(layer)
-    #return layer
-
 
 input = tf.keras.layers.Input(shape=(28, 28, 1))
 
@@ -52,3 +42,15 @@ model.summary()
 
 model.fit(x_train, y_train, batch_size=64, epochs=10,
          validation_data=(x_test, y_test))
+
+
+
+# Data Prepare END
+#def vgg_block(in_layer, n_conv, n_filter, filter_size=(3, 3), reduce_size=True):
+    #layer = in_layer
+    #for i in range(n_conv):
+        #layer = tf.keras.layers.Con2D(n_filter, filter_size, padding='SAME', activation='relu')(layer)
+
+   # if reduce_size:
+        #layer = tf.keras.layers.MaxPool2D((2, 2))(layer)
+    #return layer
